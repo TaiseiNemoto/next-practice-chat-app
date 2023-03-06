@@ -1,9 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import type { NextPage } from 'next'
+import { Box, Heading } from '@chakra-ui/react'
 
 const Page: NextPage = () => {
-  return <div>home</div>
+  return (
+    <Box>
+      <Heading>Chakra UI</Heading>
+    </Box>
+  )
 }
 
 export default Page
