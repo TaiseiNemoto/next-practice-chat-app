@@ -1,14 +1,25 @@
-import { Container, Heading, Spacer, chakra, Input, Button, Flex, Avatar, Box, Text } from '@chakra-ui/react';
+import {
+  Container,
+  Heading,
+  Spacer,
+  chakra,
+  Input,
+  Button,
+  Flex,
+  Avatar,
+  Box,
+  Text,
+} from '@chakra-ui/react'
 import { useState, FormEvent, useEffect, useRef } from 'react'
 import { getDatabase, onChildAdded, push, ref } from '@firebase/database'
 import { FirebaseError } from '@firebase/util'
-import { AuthGuard } from '@src/feature/auth/component/AuthGuard';
+import { AuthGuard } from '@src/feature/auth/component/AuthGuard'
 
 type MessageProps = {
   message: string
 }
 
-const Message = ({message}: MessageProps) => {
+const Message = ({ message }: MessageProps) => {
   return (
     <Flex alignItems={'start'}>
       <Avatar />
@@ -31,7 +42,7 @@ export const Page = () => {
       const db = getDatabase()
       const dbRef = ref(db, 'chat')
       await push(dbRef, {
-        message
+        message,
       })
       setMessage('')
     } catch (e) {
@@ -60,7 +71,7 @@ export const Page = () => {
 
   useEffect(() => {
     messageElementRef.current?.scrollTo({
-      top: messageElementRef.current.scrollHeight
+      top: messageElementRef.current.scrollHeight,
     })
   }, [chats])
 
@@ -75,7 +86,13 @@ export const Page = () => {
       >
         <Heading>チャット</Heading>
         <Spacer flex={'none'} height={4} aria-hidden />
-        <Flex flexDirection={'column'} overflowY={'auto'} gap={2} height={400} ref={messageElementRef}>
+        <Flex
+          flexDirection={'column'}
+          overflowY={'auto'}
+          gap={2}
+          height={400}
+          ref={messageElementRef}
+        >
           {chats.map((chat, index) => (
             <Message message={chat.message} key={`ChatMessage_${index}`} />
           ))}

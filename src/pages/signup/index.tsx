@@ -10,7 +10,7 @@ import {
   Input,
   Center,
   Button,
-  useToast
+  useToast,
 } from '@chakra-ui/react'
 import { FormEvent, useState } from 'react'
 import {
@@ -19,7 +19,7 @@ import {
   sendEmailVerification,
 } from 'firebase/auth'
 import { FirebaseError } from '@firebase/util'
-import { useRouter } from '../../hooks/useRouter/useRouter';
+import { useRouter } from '../../hooks/useRouter/useRouter'
 
 export const Page = () => {
   const [email, setEmail] = useState<string>('')
@@ -44,7 +44,7 @@ export const Page = () => {
       toast({
         title: '確認メールを送信しました。',
         status: 'success',
-        position: 'top'
+        position: 'top',
       })
       push((path) => path.chat.$url())
     } catch (e) {
@@ -52,7 +52,7 @@ export const Page = () => {
         toast({
           title: 'エラーが発生しました。',
           status: 'error',
-          position: 'top'
+          position: 'top',
         })
         console.log(e)
       }

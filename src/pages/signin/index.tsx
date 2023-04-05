@@ -10,12 +10,12 @@ import {
   Heading,
   Input,
   Spacer,
-  useToast
+  useToast,
 } from '@chakra-ui/react'
 import { FormEvent, useState } from 'react'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { FirebaseError } from '@firebase/util'
-import { useRouter } from '../../hooks/useRouter/useRouter';
+import { useRouter } from '../../hooks/useRouter/useRouter'
 
 export const Page = () => {
   const [email, setEmail] = useState<string>('')

@@ -13,7 +13,7 @@ export type GlobalAuthState = {
 }
 
 const initialState: GlobalAuthState = {
-  user: undefined
+  user: undefined,
 }
 
 const AuthContext = createContext<GlobalAuthState>(initialState)
